@@ -9,6 +9,7 @@ import {
   Text,
   Title,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 const benefits = [
   {
@@ -139,6 +140,8 @@ const administration = [
 ];
 
 const Industries = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <>
       <Title mt={30} size="h4" ta="center" color="#FDB36B">
@@ -158,7 +161,14 @@ const Industries = () => {
       </Center>
       <Flex wrap="wrap" justify="center" gap={40} p={20} mt={50}>
         {benefits.map((benefit, index) => (
-          <Paper w="30%" shadow="md" radius={10} mt={20} key={index} p={20}>
+          <Paper
+            w={{ lg: "30%", sm: "100%" }}
+            shadow="md"
+            radius={10}
+            mt={20}
+            key={index}
+            p={20}
+          >
             <Center>
               <Image src={benefit.img} height={100} fit="contain" />
             </Center>
@@ -201,16 +211,21 @@ const Industries = () => {
           }}
         />
       </Center>
-      <Flex wrap="wrap" justify="center" gap={40} p={20} mt={50}>
+      <Flex
+        direction={isMobile ? "column" : "row"}
+        wrap="wrap"
+        justify="center"
+        gap={40}
+        p={20}
+        mt={50}
+      >
         {teacherbenefits.map((benefit1, index1) => (
           <Paper
-            w="30%"
-            // style={{ border: "1px solid #FDB36B", width: "30%" }}
+            w={{ lg: "30%", sm: "100%" }}
             shadow="md"
             radius={10}
             mt={20}
             key={index1}
-            // withBorder
             p={20}
           >
             <Center>
@@ -259,7 +274,7 @@ const Industries = () => {
       <Flex wrap="wrap" justify="space-between" p={20} mt={50}>
         {administration.map((administrationdata, index2) => (
           <Paper
-            w="30%"
+            w={{ lg: "30%", sm: "100%" }}
             // style={{ border: "1px solid #FDB36B", width: "30%" }}
             shadow="md"
             radius={10}

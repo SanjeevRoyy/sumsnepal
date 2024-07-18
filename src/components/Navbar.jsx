@@ -180,7 +180,7 @@ const Navbar = () => {
         size="md"
       >
         <Stack spacing={20} align="center">
-          <Menu radius={"lg"} shadow="md" width={300}>
+          <Menu radius={"lg"} shadow="md" width={350}>
             <Menu.Target>
               <Button
                 variant="transparent"
@@ -211,7 +211,7 @@ const Navbar = () => {
                       </Paper>
                       <Box>
                         <Text>{item.name}</Text>
-                        <Text size="sm" c="dimmed">
+                        <Text  size="sm" c="dimmed">
                           {item.description}
                         </Text>
                       </Box>

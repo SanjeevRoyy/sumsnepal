@@ -71,14 +71,14 @@ const ItServices = () => {
         Services We Provide
       </Title>
       <Center>
-        <Text maw={600} c="dimmed" mt={10}>
+        <Text p={20} maw={600} c="dimmed" mt={10}>
           SUMS Nepal Private Limited is committed to enhancing the educational
           experience by offering a range of services designed to meet the needs
           of academic institutes.
         </Text>
       </Center>
 
-      <Flex wrap="wrap" justify="space-between" p={20} mt={50}>
+      <Flex wrap="wrap" gap={10} justify="center" p={20} mt={50}>
         {services.map((item, index) => {
           return (
             <Paper

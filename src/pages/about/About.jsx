@@ -12,9 +12,11 @@ import {
   Textarea,
   Title,
 } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import React from "react";
 
 const About = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <>
       <div style={{ position: "relative", display: "inline-block" }}>
@@ -40,7 +42,7 @@ const About = () => {
             textAlign: "center",
           }}
         >
-          <Title>Know more about how we help!</Title>
+          <Title order={isMobile ? 3 : 1}>Know more about how we help!</Title>
           <Text>Know more about how we help!</Text>
         </div>
       </div>
@@ -94,7 +96,13 @@ const About = () => {
         </Text>
       </Box>
 
-      <Flex bg="whitesmoke" justify="center" mt={100} gap={80} p={20}>
+      <Flex
+        bg="whitesmoke"
+        justify="center"
+        mt={100}
+        gap={isMobile ? 0 : 80}
+        p={20}
+      >
         <Box mt={10}>
           <Title>GET IN TOUCH </Title>
           <Title>WITH OUR EXPERTS</Title>
@@ -104,13 +112,13 @@ const About = () => {
         </Box>
         <Box>
           <Text>Full Name</Text>
-          <TextInput mt={5} placeholder="Enter your Name" />
+          <TextInput placeholder="Enter your Name" />
           <Text mt={10}>E-mail Address</Text>
-          <TextInput mt={5} placeholder="Enter your E-mail" />
+          <TextInput placeholder="Enter your E-mail" />
           <Text mt={10}>Phone Number</Text>
-          <TextInput mt={5} placeholder="Enter your phone number" />
+          <TextInput placeholder="Enter your phone number" />
           <Text mt={10}>Message Us</Text>
-          <Textarea mt={5} placeholder="Enter message here" />
+          <Textarea placeholder="Enter message here" />
           <Center>
             <Button bg="orange" mt={10}>
               Submit
