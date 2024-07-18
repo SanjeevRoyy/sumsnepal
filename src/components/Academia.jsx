@@ -41,7 +41,7 @@ const Academia = () => {
           <span style={{ color: "#AA3F13" }}>C</span>
         </Text>
       </Box>
-      <Flex direction={isMobile ? "column" : "row"} align="center" gap={40}>
+      <Flex p={40} direction={isMobile ? "column" : "row"} align="center" gap={40}>
         <Image h={400} src={codeImg} alt="Coding" />
         <Box>
           {checklistItems.map((item, index) => {

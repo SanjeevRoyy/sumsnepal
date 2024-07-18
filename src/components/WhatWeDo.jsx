@@ -1,5 +1,5 @@
-import { Flex, Group, Paper, Text } from '@mantine/core'
-import React from 'react'
+import { Flex, Group, Paper, Text } from "@mantine/core";
+import React from "react";
 import { BotMessageSquare } from "lucide-react";
 import { BatteryCharging } from "lucide-react";
 import { Fingerprint } from "lucide-react";
@@ -8,7 +8,7 @@ import { ShieldHalf } from "lucide-react";
 const WhatWeDo = () => {
   return (
     <>
-     <Text ta="center" mt={50} size="50px">
+      <Text ta="center" mt={50} size="50px">
         What <span style={{ color: "#F67116" }}>We</span>{" "}
         <span style={{ color: "#BA4913" }}>Do</span>
       </Text>
@@ -62,9 +62,8 @@ const WhatWeDo = () => {
           </Text>
         </Paper>
       </Flex>
-      
     </>
-  )
-}
+  );
+};
 
-export default WhatWeDo
+export default WhatWeDo;
