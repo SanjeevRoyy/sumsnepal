@@ -10,6 +10,7 @@ import {
   Text,
   Box,
   Divider,
+  Paper,
 } from "@mantine/core";
 import React from "react";
 import { useDisclosure } from "@mantine/hooks";
@@ -27,8 +28,10 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const asolutions = [
@@ -78,7 +81,9 @@ const Navbar = () => {
         p={20}
         justify="space-between"
       >
-        <Image w={100} src="assets/logo.png" />
+        <Link to="/">
+          <Image w={100} src="assets/logo.png" />
+        </Link>
         {!isMobile && (
           <Group gap={50}>
             <Menu radius={"lg"} shadow="md" width={400}>
@@ -102,8 +107,14 @@ const Navbar = () => {
                       style={{ display: "flex", alignItems: "center" }}
                       key={index}
                     >
-                      <Group>
-                        <Icon height={30} className="icon-class" />
+                      <Group gap={30}>
+                        <Paper p={8} bg="whitesmoke">
+                          <Icon
+                            color="#718096"
+                            height={25}
+                            className="icon-class"
+                          />
+                        </Paper>
                         <Box>
                           <Text>{item.name}</Text>
                           <Text size="sm" c="dimmed">
@@ -115,12 +126,12 @@ const Navbar = () => {
                   );
                 })}
 
-                <Group p={10}  gap={30} mt={20} justify="center">
+                <Group p={10} gap={30} mt={20} justify="center">
                   {callsToAction.map((item, index) => {
                     const Icon = item.icon;
                     return (
                       <>
-                        <Button color="black" variant="subtle ">
+                        <Button color="black" variant="subtle">
                           <Icon height={20} className="icon-class" />
                           <Text>{item.name}</Text>
                         </Button>
@@ -131,20 +142,30 @@ const Navbar = () => {
               </Menu.Dropdown>
             </Menu>
 
-            <Anchor target="_blank" c="black">
+            <Link
+              style={{ color: "black", textDecoration: "none" }}
+              to="/industries"
+            >
               Industries
-            </Anchor>
-            <Anchor target="_blank" c="black">
+            </Link>
+            <Link
+              style={{ color: "black", textDecoration: "none" }}
+              to="/itservices"
+            >
               IT Services
-            </Anchor>
-            <Anchor target="_blank" c="black">
+            </Link>
+            <Link
+              style={{ color: "black", textDecoration: "none" }}
+              to="/about"
+            >
               About
-            </Anchor>
+            </Link>
           </Group>
         )}
         {isMobile && <Burger opened={opened} onClick={toggle} />}
         {!isMobile && (
           <Button
+            onClick={() => navigate("/package")}
             c="black"
             bg="linear-gradient(to right, rgb(253, 183, 112), rgb(249, 118, 26))"
           >

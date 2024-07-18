@@ -1,5 +1,6 @@
 import { Box, Flex, Image, Text } from "@mantine/core";
 import React from "react";
+import {Routes} from 'react-router-dom'
 
 const Footer = () => {
   return (
