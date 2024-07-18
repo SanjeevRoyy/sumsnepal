@@ -8,6 +8,7 @@ import Marquee from "react-fast-marquee";
 import LazyLoad from "react-lazyload";
 
 const Brand = () => {
+
   const brands = [
     {
       img: sagarmatha,
@@ -24,7 +25,7 @@ const Brand = () => {
   ];
   return (
     <>
-      <Text ta="center" mt={50} size="50px">
+      <Text p={10} ta="center" mt={50} size="50px">
         Accompained by the most innovative teams
       </Text>
       <Marquee speed={80} pauseOnHover={false}>

@@ -4,8 +4,10 @@ import { BotMessageSquare } from "lucide-react";
 import { BatteryCharging } from "lucide-react";
 import { Fingerprint } from "lucide-react";
 import { ShieldHalf } from "lucide-react";
+import { useMediaQuery } from "@mantine/hooks";
 
 const WhatWeDo = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <>
       <Text ta="center" mt={50} size="50px">
@@ -13,8 +15,12 @@ const WhatWeDo = () => {
         <span style={{ color: "#BA4913" }}>Do</span>
       </Text>
 
-      <Flex mt={30} justify="space-between">
-        <Paper p={20}>
+      <Flex
+        direction={isMobile ? "column" : "row"}
+        mt={30}
+        justify="space-between"
+      >
+        <Paper p={isMobile ? 20 : 40}>
           <Group>
             <BotMessageSquare color="orange" />
             <Text size="20px">Cultivating Tech Innovation:</Text>
@@ -37,11 +43,15 @@ const WhatWeDo = () => {
           </Text>
         </Paper>
       </Flex>
-      <Flex mt={30} justify="space-between">
-        <Paper p={20}>
-          <Group>
+      <Flex
+        direction={isMobile ? "column" : "row"}
+        mt={30}
+        justify="space-between"
+      >
+        <Paper p={isMobile ? 20 : 40}>
+          <Group gap={10} align="top">
             <ShieldHalf color="orange" />
-            <Text size="20px">
+            <Text maw={isMobile ? 300 : 600} size={isMobile ? "20px" : "20px"}>
               Supporting Tech Entrepreneurship Ecosystems:
             </Text>
           </Group>
@@ -53,7 +63,9 @@ const WhatWeDo = () => {
         <Paper p={20}>
           <Group>
             <BatteryCharging color="orange" />
-            <Text size="20px">Facilitating Tech Skill Development :</Text>
+            <Text maw={isMobile ? 300 : 600} size="20px">
+              Facilitating Tech Skill Development :
+            </Text>
           </Group>
           <Text c="#737373" p={40} maw={800}>
             SUMS offer training and learning opportunities to equip learners

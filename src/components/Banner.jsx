@@ -1,10 +1,12 @@
 import { Box, Group, Image, Paper, Text, Title } from "@mantine/core";
 import React from "react";
 import illustrationIntro from "/assets/illustration-intro.svg";
+import { useMediaQuery } from "@mantine/hooks";
 
 const Banner = () => {
+  const isMobile = useMediaQuery("(max-width:755px)");
   return (
-    <>
+    <Box p={isMobile ? 10 : 40}>
       <Paper mt={60} bg="#FDBA74" p={20}>
         <Group justify="space-between" align="top">
           <Box>
@@ -20,7 +22,7 @@ const Banner = () => {
           <Image src={illustrationIntro} alt="" />
         </Group>
       </Paper>
-    </>
+    </Box>
   );
 };
 
