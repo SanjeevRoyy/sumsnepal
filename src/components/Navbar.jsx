@@ -130,12 +130,10 @@ const Navbar = () => {
                   {callsToAction.map((item, index) => {
                     const Icon = item.icon;
                     return (
-                      <>
-                        <Button color="black" variant="subtle">
-                          <Icon height={20} className="icon-class" />
-                          <Text>{item.name}</Text>
-                        </Button>
-                      </>
+                      <Button color="black" variant="subtle" key={index}>
+                        <Icon height={20} className="icon-class" />
+                        <Text>{item.name}</Text>
+                      </Button>
                     );
                   })}
                 </Group>
@@ -182,18 +180,80 @@ const Navbar = () => {
         size="md"
       >
         <Stack spacing={20} align="center">
-          <Anchor fw={600} target="_blank" c="black" onClick={close}>
-            Academia
-          </Anchor>
-          <Anchor target="_blank" c="black" onClick={close}>
+          <Menu radius={"lg"} shadow="md" width={300}>
+            <Menu.Target>
+              <Button
+                variant="transparent"
+                rightSection={<FaChevronDown />}
+                fw={600}
+                target="_blank"
+                c="black"
+              >
+                Academia
+              </Button>
+            </Menu.Target>
+
+            <Menu.Dropdown>
+              {asolutions.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Menu.Item
+                    style={{ display: "flex", alignItems: "center" }}
+                    key={index}
+                  >
+                    <Group gap={30}>
+                      <Paper p={8} bg="whitesmoke">
+                        <Icon
+                          color="#718096"
+                          height={25}
+                          className="icon-class"
+                        />
+                      </Paper>
+                      <Box>
+                        <Text>{item.name}</Text>
+                        <Text size="sm" c="dimmed">
+                          {item.description}
+                        </Text>
+                      </Box>
+                    </Group>
+                  </Menu.Item>
+                );
+              })}
+
+              <Group p={10} gap={30} mt={20} justify="center">
+                {callsToAction.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <Button color="black" variant="subtle" key={index}>
+                      <Icon height={20} className="icon-class" />
+                      <Text>{item.name}</Text>
+                    </Button>
+                  );
+                })}
+              </Group>
+            </Menu.Dropdown>
+          </Menu>
+          <Link
+            style={{ color: "black", textDecoration: "none" }}
+            to="/industries"
+            onClick={close}
+          >
             Industries
-          </Anchor>
-          <Anchor target="_blank" c="black" onClick={close}>
+          </Link>
+          <Link
+            style={{ color: "black", textDecoration: "none" }}
+            to="/itservices"
+            onClick={close}
+          >
             IT Services
-          </Anchor>
-          <Anchor target="_blank" c="black" onClick={close}>
+          </Link>
+          <Link
+            style={{ color: "black", textDecoration: "none" }}
+            to="/about"
+            onClick={close}
+          >
             About
-          </Anchor>
+          </Link>
           <Button
             c="black"
             bg="linear-gradient(to right, rgb(253, 183, 112), rgb(249, 118, 26))"
