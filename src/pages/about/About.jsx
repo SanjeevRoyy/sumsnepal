@@ -97,18 +97,24 @@ const About = () => {
       </Box>
 
       <Flex
+        direction={isMobile ? "column" : "row"}
         bg="whitesmoke"
         justify="center"
         mt={100}
-        gap={isMobile ? 0 : 80}
+        gap={isMobile ? 40 : 80}
         p={20}
       >
         <Box mt={10}>
-          <Title>GET IN TOUCH </Title>
-          <Title>WITH OUR EXPERTS</Title>
-          <Text mt={10}>EDU HUB Education Foundation Pvt. Ltd.</Text>
-          <Text mt={10}>ANTA Complex - 3rd Floor Jawalakhel, Lalitpur</Text>
-          <Text mt={10}>01-5425388 | 01-5446454 | 9851125388</Text>
+          <Title ta="center">GET IN TOUCH </Title>
+          <Title size="h3" ta="center">
+            WITH OUR EXPERTS
+          </Title>
+
+          <Box>
+            <Text mt={10}>EDU HUB Education Foundation Pvt. Ltd.</Text>
+            <Text mt={10}>ANTA Complex - 3rd Floor Jawalakhel, Lalitpur</Text>
+            <Text mt={10}>01-5425388 | 01-5446454 | 9851125388</Text>
+          </Box>
         </Box>
         <Box>
           <Text>Full Name</Text>

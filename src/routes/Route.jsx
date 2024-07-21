@@ -5,10 +5,12 @@ import Home from "../pages/Home";
 import ItServices from "../pages/itService/ItServices";
 import Industries from "../pages/industries/Industries";
 import Package from "../pages/package/Package";
+import ScrollToTop from "./ScroolTop";
 
 const Routing = () => {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
