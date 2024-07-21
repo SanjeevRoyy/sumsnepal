@@ -37,6 +37,7 @@ const WhatWeDo = () => {
   return (
     <>
       <motion.div
+        ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={titleVariants}

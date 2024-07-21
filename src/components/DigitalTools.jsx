@@ -1,16 +1,18 @@
 import {
-    CloudArrowUpIcon,
-    LockClosedIcon,
-    ServerIcon,
-  } from "@heroicons/react/20/solid";
+  CloudArrowUpIcon,
+  LockClosedIcon,
+  ServerIcon,
+} from "@heroicons/react/20/solid";
 import { Box, Flex, Image, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import React from "react";
+import React, { useRef } from "react";
 import work from "/assets/cogimg9.png";
-
+import { useInView, motion } from "framer-motion";
 
 const DigitalTools = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const textref = useRef(null);
+  const isTextInView = useInView(textref, { once: true });
 
   return (
     <>
@@ -20,7 +22,17 @@ const DigitalTools = () => {
         justify="space-between"
       >
         <Box>
-          <Text size="50px">Digital Tools</Text>
+          <motion.div
+            ref={textref}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{
+              opacity: isTextInView ? 1 : 0,
+              x: isTextInView ? 0 : -100,
+            }}
+            transition={{ duration: 1 }}
+          >
+            <Text size="50px">Digital Tools</Text>
+          </motion.div>
           <Text c="#737373" size="20px" mt={30}>
             Revolutionizing with Integrated Digital Tools
           </Text>
