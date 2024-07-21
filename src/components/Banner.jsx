@@ -30,7 +30,7 @@ const Banner = () => {
 
   return (
     <Box p={isMobile ? 10 : 40}>
-      <Paper mt={60} bg="#FDBA74" p={20}>
+      <Paper h='90vh' mt={60} bg="#FDBA74" p={20}>
         <Group justify="space-between" align="top">
           <Box>
             <motion.div ref={textRef}>
@@ -55,7 +55,11 @@ const Banner = () => {
               digital tools. Together, let's build a brighter future.
             </Text>
           </Box>
-          <motion.div initial="hidden" animate="visible" variants={imageVariants}>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={imageVariants}
+          >
             <Image src={illustrationIntro} alt="" />
           </motion.div>
         </Group>

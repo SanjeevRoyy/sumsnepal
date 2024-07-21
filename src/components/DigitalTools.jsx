@@ -12,6 +12,8 @@ import { useInView, motion } from "framer-motion";
 const DigitalTools = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const textref = useRef(null);
+  const imageRef = useRef(null);
+  const isImageInView = useInView(imageRef, { once: true });
   const isTextInView = useInView(textref, { once: true });
 
   return (
@@ -97,7 +99,24 @@ const DigitalTools = () => {
           </Flex>
         </Box>
         <Box pos="sticky" top={80} style={{ height: "80vh" }}>
-          <Image height={450} src={work} radius="xl" withPlaceholder />
+          <motion.div
+            ref={imageRef}
+            // initial={{ opacity: 0, x: 100 }}
+            // animate={{
+            //   opacity: isImageInView ? 1 : 0,
+            //   y: isImageInView ? 0 : -100,
+            // }}
+            // transition={{ duration: 1, delay: 0.2 }}
+            initial={{ scale: 0 }}
+            animate={{ rotate: isImageInView? 360 :0, scale: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+            }}
+          >
+            <Image height={450} src={work} radius="xl" withPlaceholder />
+          </motion.div>
         </Box>
       </Flex>
     </>
