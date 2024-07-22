@@ -12,7 +12,7 @@ import {
   Divider,
   Paper,
 } from "@mantine/core";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { useMediaQuery } from "@mantine/hooks";
 import { FaChevronDown } from "react-icons/fa";
@@ -34,6 +34,23 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const [navbarBg, setNavbarBg] = useState("white");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSectionHeight =
+        document.getElementById("hero-section")?.clientHeight || 0;
+      if (window.scrollY > heroSectionHeight) {
+        setNavbarBg("white");
+      } else {
+        setNavbarBg("#FDBA74");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const asolutions = [
     {
       name: "Preincubation",
@@ -74,8 +91,11 @@ const Navbar = () => {
   return (
     <>
       <Group
-        style={{ zIndex: 1 }}
-        bg="white"
+        style={{
+          zIndex: 1,
+          background: navbarBg,
+          transition: "background 0.3s",
+        }}
         pos="sticky"
         top={0}
         p={20}
@@ -211,7 +231,7 @@ const Navbar = () => {
                       </Paper>
                       <Box>
                         <Text>{item.name}</Text>
-                        <Text  size="sm" c="dimmed">
+                        <Text size="sm" c="dimmed">
                           {item.description}
                         </Text>
                       </Box>

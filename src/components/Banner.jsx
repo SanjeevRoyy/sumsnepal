@@ -1,8 +1,9 @@
-import { Box, Group, Image, Paper, Text, Title } from "@mantine/core";
+import { Box, Button, Group, Image, Paper, Text, Title } from "@mantine/core";
 import React, { useRef } from "react";
 import { useMediaQuery } from "@mantine/hooks";
 import { inView, motion } from "framer-motion";
 import illustrationIntro from "/assets/illustration-intro.svg";
+import { FaRegThumbsUp } from "react-icons/fa";
 
 const Banner = () => {
   const isMobile = useMediaQuery("(max-width: 755px)");
@@ -29,12 +30,12 @@ const Banner = () => {
   };
 
   return (
-    <Box p={isMobile ? 10 : 40}>
-      <Paper h='90vh' mt={60} bg="#FDBA74" p={20}>
+    <Box p={isMobile ? 0 : 0}>
+      <Paper bg="#FDBA74" p={50}>
         <Group justify="space-between" align="top">
           <Box>
             <motion.div ref={textRef}>
-              <Title maw={350}>
+              <Text size="45px" maw={420} fw={600}>
                 {words.map((word, index) => (
                   <motion.span
                     key={index}
@@ -47,13 +48,22 @@ const Banner = () => {
                     {word}
                   </motion.span>
                 ))}
-              </Title>
+              </Text>
             </motion.div>
             <Text mt={40} maw={400}>
               Join with us in fostering skill development and community-driven
               innovation to address societal challenges using cutting-edge
               digital tools. Together, let's build a brighter future.
             </Text>
+            <Button
+              mt={40}
+              size="lg"
+              radius={20}
+              variant="default"
+              leftSection={<FaRegThumbsUp />}
+            >
+              Get Started
+            </Button>
           </Box>
           <motion.div
             initial="hidden"
