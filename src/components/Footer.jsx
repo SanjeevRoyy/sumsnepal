@@ -1,8 +1,9 @@
 import { Box, Flex, Image, Text } from "@mantine/core";
 import React from "react";
-import {Routes} from 'react-router-dom'
+import { Routes, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Box mt={60} bg="#FDB973" p={100}>
@@ -22,46 +23,45 @@ const Footer = () => {
 
           <Flex direction="column" gap={10}>
             <Text fw="bold">Company</Text>
-
-            <Text>Meet the Team</Text>
-
-            <Text>History</Text>
-
-            <Text>Careers</Text>
+            <Text size="sm">Meet the Team</Text>
+            <Text size="sm">History</Text>
+            <Text size="sm">Careers</Text>
           </Flex>
 
           <Flex direction="column" gap={10}>
             <Text fw="bold">Services</Text>
 
-            <Text>Preincubation</Text>
+            <Text size="sm">Preincubation</Text>
 
-            <Text>Incubation</Text>
+            <Text size="sm">Incubation</Text>
 
-            <Text>Hackathon</Text>
+            <Text size="sm">Hackathon</Text>
 
-            <Text>Test Bed</Text>
+            <Text size="sm">Test Bed</Text>
           </Flex>
 
           <Flex direction="column" gap={10}>
             <Text fw="bold">Helpful Links</Text>
 
-            <Text>Contact</Text>
+            <Text size="sm">Contact</Text>
 
-            <Text>FAQs</Text>
+            <Text size="sm">FAQs</Text>
 
-            <Text>Live Chat</Text>
+            <Text size="sm">Live Chat</Text>
           </Flex>
 
           <Flex direction="column" gap={10}>
             <Text fw="bold">Legal</Text>
 
-            <Text>Privacy Policy</Text>
+            <Text onClick={() => navigate("/privacy")} size="sm">
+              Privacy Policy
+            </Text>
 
-            <Text>Terms & Conditions</Text>
+            <Text size="sm">Terms & Conditions</Text>
 
-            <Text>Returns Policy</Text>
+            <Text size="sm">Returns Policy</Text>
 
-            <Text>Accessibility</Text>
+            <Text size="sm">Accessibility</Text>
           </Flex>
         </Flex>
 

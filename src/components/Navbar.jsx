@@ -34,7 +34,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [opened, { toggle, close }] = useDisclosure(false);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [navbarBg, setNavbarBg] = useState("white");
+  const [navbarBg, setNavbarBg] = useState("#FDBA74");
 
   useEffect(() => {
     const handleScroll = () => {

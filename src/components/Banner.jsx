@@ -31,7 +31,7 @@ const Banner = () => {
 
   return (
     <Box p={isMobile ? 0 : 0}>
-      <Paper bg="#FDBA74" p={50}>
+      <Paper p={50}>
         <Group justify="space-between" align="top">
           <Box>
             <motion.div ref={textRef}>
@@ -55,7 +55,7 @@ const Banner = () => {
               innovation to address societal challenges using cutting-edge
               digital tools. Together, let's build a brighter future.
             </Text>
-            <Button
+            {/* <Button
               mt={40}
               size="lg"
               radius={20}
@@ -63,7 +63,7 @@ const Banner = () => {
               leftSection={<FaRegThumbsUp />}
             >
               Get Started
-            </Button>
+            </Button> */}
           </Box>
           <motion.div
             initial="hidden"
