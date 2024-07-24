@@ -89,7 +89,7 @@ const Navbar = () => {
   ];
 
   return (
-    <>
+    <Box>
       <Group
         style={{
           zIndex: 1,
@@ -283,7 +283,7 @@ const Navbar = () => {
           </Button>
         </Stack>
       </Drawer>
-    </>
+    </Box>
   );
 };
 
